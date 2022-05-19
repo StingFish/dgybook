@@ -81,8 +81,12 @@ echo "</style>";
           <div class='input-box'>
             <span class='details'>Entry Group Type</span>
           <select name='roles'>
+          <option value='Dean'>Secretary</option>
           <option value='President'>President</option>
+          <option value='Head'>Head</option>
+          <option value='Instructor'>Instructor</option>
           <option value='Secretary'>Secretary</option>
+          <option value='Officer In Charge'>Officer In Charge</option>
             </select>
           </div>
           </div>

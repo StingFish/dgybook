@@ -100,7 +100,7 @@ if(mysqli_num_rows($result) > 0)
               <a style="text-decoration:none;color:white" href="regFunction.php?recover='.$row["email"].'&psw='.$row["password"].'&img='.$row["profile_image"].'&lname='.$row["lname"].'&fname='.$row["fname"].'&mname='.$row["mname"].'&addr='.$row["address"].'&mobile='.$row["mobile"].'&landline='.$row["landline"].'&quotes='.$row["quotes"].'&sec='.$row["section"].'&acc='.$row["atype"].'&year='.$row["year_created"].'&status='.$row["is_disabled"].'&id='.$row["ridnumber"].'&course='.$row["rcourse"].'&honor='.$row["rhonor"].'"><b><i class="fas fa-trash-restore" style="font-size:15px"></i></b></a>
                 </button>
                 <button style="background-color:red">
-              <a style="text-decoration:none;color:white" href="regFunction.php?email='.$row["email"].'"><b><i class="fas fa-trash" style="font-size:15px"></i></b></a>
+              <a style="text-decoration:none;color:white" href="regFunction.php?ema='.$row["email"].'&file='.$row["profile_image"].'"><b><i class="fas fa-trash" style="font-size:15px"></i></b></a>
                 </button>
               </td>
 			</tr>
@@ -118,14 +118,17 @@ else
 						<tr style="background-color:#0276d8">
 							<th style="width:100px;">Image</th>
 							<th style="width:100px;">Full Name</th>
-							<th style="width:300px;">Email</th>
-							<th style="width:350px;">Password</th>
+							<th style="width:100px;">Email</th>
+							<th style="width:100px;">Password</th>
 							<th style="width:300px;">Address</th>
 							<th style="width:130px;">Contact No.</th>
 							<th style="width:100px;">Landline</th>
 							<th style="width:100px;">Account Type</th>
 							<th style="width:100px;">Date Created</th>
 							<th style="width:100px;">Status</th>
+							<th style="width:100px;">ID Number</th>
+							<th style="width:100px;">Course</th>
+							<th style="width:100px;">Honor</th>
 							<th style="width:100px;">Action</th>
 						</tr>
 					</thead>
@@ -133,7 +136,7 @@ else
 					';
 		$output .= '
 			<tr style="float: center">
-				<td align="center" data-label="Result" colspan="13">Data not Found</td>
+				<td align="center" data-label="Result" colspan="14">Data not Found</td>
 			</tr>
 			</tbody>
 		';

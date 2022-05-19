@@ -71,8 +71,8 @@
             <input onkeypress="return /[0-9-]/i.test(event.key)" type="tel" placeholder="Telephone No. (XXX-XXXX)" name="mobile" value="<?php echo $tel;?>" pattern="[0-9]{3}-[0-9]{4}" required><br>
           <span class="details">Course</span>
             <select name="course" value="<?php echo $cour;?>">
-            <option value="BSIT"><b>BSIT</b></option>
             <option value="BSIS"><b>BSIS</b></option>
+            <option value="CPE"><b>CPE</b></option>
       </select>
           </div>
           <div class="input-box">

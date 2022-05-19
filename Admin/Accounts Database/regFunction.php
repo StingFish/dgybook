@@ -14,18 +14,18 @@ $mysqli = new mysqli('localhost', 'root', '', 'tests') or die(mysqli_error($mysq
 
 if(isset($_GET['ema'])){
     $file = $_GET['ema'];
-    $typee = $_GET['atype'];
-    $que = "SELECT * FROM tbl_accounts WHERE email = '$file'";
+    $typee = $_GET['file'];
+    $que = "SELECT * FROM tbl_raccounts WHERE email = '$file'";
   $cre = mysqli_query($mysqli, $que);
   $dre = mysqli_fetch_array($cre);
   $Yrr = $_SESSION['Use'];
-  $path = "../../DB/" . $dre['profile_image'];
+  $path = "../../DB/" . $typee;
   if (!unlink($path)) {
-    echo "<script>alert('You already delete it.');window.location='index.php';</script>";
+    echo "<script>alert('You already delete it.');window.location='index2.php';</script>";
   }
   else{
-  $mysqli->query("DELETE FROM tbl_accounts WHERE email = '$file'") or die($mysqli->error());
-  header("Location: index.php");
+  $mysqli->query("DELETE FROM tbl_raccounts WHERE email = '$file'") or die($mysqli->error());
+  header("Location: index2.php");
 }
 }
 

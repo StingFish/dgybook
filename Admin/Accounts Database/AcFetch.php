@@ -38,12 +38,12 @@ if(isset($_POST["affair_query"]))
 {
 	
 	$search = mysqli_real_escape_string($db_connect, $_POST["affair_query"]);
-	$query = " SELECT * FROM tbl_accounts WHERE lname LIKE '%".$search."%'";
+	$query = " SELECT * FROM tbl_accounts WHERE lname LIKE '%".$search."%' ORDER BY lname";
 }
 else
 {
 	$query = "
-	SELECT * FROM tbl_accounts WHERE NOT atype = 'Admin'";
+	SELECT * FROM tbl_accounts WHERE NOT atype = 'Admin' ORDER BY lname";
 }
 $result = mysqli_query($db_connect, $query);
 
@@ -91,9 +91,9 @@ if(mysqli_num_rows($result) > 0)
 				<td align="center" data-label="Account Type">'.$row["atype"].'</td>
 				<td data-label="Date Created">'.$row["year_created"].'</td>';
 				if($row['is_disabled']=="1"){
-              $output .= "<td data-label='Status'><a href=deactivate.php?email=".$row['email']." style='color:green'><i class='fa fa-toggle-on'></i></a></td>";
+              $output .= "<td data-label='Status'><a href=deactivate.php?email=".$row['email']." style='color:gray'><i class='fa fa-toggle-off'></i></a></td>";
         }else{
-              $output .= "<td data-label='Status'><a href=activate.php?email=".$row['email']." style='color:gray'><i class='fa fa-toggle-off'></i></a></td>";
+              $output .= "<td data-label='Status'><a href=activate.php?email=".$row['email']." style='color:green'><i class='fa fa-toggle-on'></i></a></td>";
 }
         $output .= '<td align="center">
                 <button style="background-color:red">
@@ -130,7 +130,7 @@ else
 					';
 		$output .= '
 			<tr style="float: center">
-				<td align="center" data-label="Result" colspan="13">Data not Found</td>
+				<td align="center" data-label="Result" colspan="11">Data not Found</td>
 			</tr>
 			</tbody>
 		';

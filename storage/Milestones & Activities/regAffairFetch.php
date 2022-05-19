@@ -95,7 +95,7 @@ else
 					';
 		$output .= '
 			<tr align="center">
-				<td align="center" data-label="Result" colspan="3">Data not Found</td>
+				<td align="center" data-label="Result" colspan="3">Data Milestones not Found</td>
 			</tr>
 		';
 	

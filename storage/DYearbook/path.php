@@ -283,7 +283,7 @@ hov:hover{
   <center>
   <p><a class="un" href="../../storage.php" style="float: left;font-size: 15px;display: block;">Dashboard</a></p>
   <p><a class="un" href="../../storage/Employees Database/index.php" style="float: left;font-size: 15px;display: block;">Employee's Table</a></p>
-  <p><a class="un" href="../../storage/Students Database/path.php" style="float: left;font-size: 15px;display: block;color: white;">Alumni Table</a></p>
+  <p><a class="un" href="../../storage/Students Database/path.php" style="float: left;font-size: 15px;display: block;">Alumni Table</a></p>
   <p><a class="un" href="../../storage/Milestones & Activities/path.php" style="float: left;font-size: 15px;display: block;">Milestones Table</a></p>
   <p><a class="un" href="../../storage/Extras Database/index.php" style="float: left;font-size: 15px;display: block;">Extras Table</a></p>
   <p><a class="un" href="../../storage/EYearbook Database/path.php" style="float: left;font-size: 15px;display: block;">Employee's Yearbook Table</a></p>
