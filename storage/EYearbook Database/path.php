@@ -415,7 +415,7 @@ window.onclick = function(event) {
                         </a>
                     </button>
                     <button class="option">
-                        <a href="regFunction.php?delete='.$row["id"].'">
+                        <a onclick="javascript:confirmationDelete($(this));return false;" href="regFunction.php?delete='.$row["id"].'">
                           <i class="fas fa-trash-alt yb"></i>
                         </a>
                     </button>
@@ -500,3 +500,11 @@ if (isset($_POST['submit2'])) {
 }
 
 ?>
+<script>
+	function confirmationDelete(anchor)
+	{
+   var conf = confirm('Do you really want to delete these records? This process cannot be undone.');
+   if(conf)
+      window.location=anchor.attr("href");
+	}	
+</script>

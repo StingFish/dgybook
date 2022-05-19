@@ -19,6 +19,12 @@ if(isset($_GET['editan'])){
 	$mysqli->query("DELETE FROM tbl_eybook WHERE eid = '$EMAIL' AND employee_year = '$Yrr'") or die($mysqli->error());
   header("Location: index.php");
 }
+#delete Eyearbook 
+if(isset($_GET['delete'])){
+  $id= $_GET['delete'];
+  $mysqli->query("DELETE FROM folder2 WHERE id = '$id'") or die($mysqli->error());
+  header("Location: path.php");
+}
 
 # Form update Syearbook image
 if(isset($_GET['edit'])){
