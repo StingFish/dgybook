@@ -18,6 +18,7 @@
     
 }
 	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -74,10 +75,10 @@ if(mysqli_num_rows($result) > 0)
 				<td align="center" data-label="Year">'.$row["addon_year"].'</td>
         <td align="center">
                 <button style="background-color:green">
-              <a style="text-decoration:none;color:white" href ="regFunction.php?edit='.$row["addon_year"].'"><b>&#9998;<b></a>
+              <a style="text-decoration:none;color:white" href ="regFunction.php?edit='.$row["addon_year"].'"><i class="fas fa-edit"></i></a>
                 </button>
                 <button style="background-color:red">
-              <a style="text-decoration:none;color:white" href="regFunction.php?email='.$row["messages"].'&file='.$row["background"].'"><b>&nbsp;&#128465;</b></a>
+              <a style="text-decoration:none;color:white" onclick="javascript:confirmationDelete($(this));return false;" href="regFunction.php?email='.$row["messages"].'&file='.$row["background"].'"><i class="fas fa-trash " aria-hidden="true"></i></a>
                 </button>
               </td>
 			</tr>
@@ -109,3 +110,11 @@ else
 	echo $output;
 }
 ?>
+<script>
+	function confirmationDelete(anchor)
+	{
+   var conf = confirm('Do you really want to delete these records? This process cannot be undone.');
+   if(conf)
+      window.location=anchor.attr("href");
+	}	
+</script>
