@@ -1,0 +1,41 @@
+
+
+table th , table td{
+    text-align: center;
+}
+
+table tr:nth-child(even){
+    background-color: #BEF2F5
+}
+
+.pagination li:hover{
+    cursor: pointer;
+}
+		table tbody tr {
+			display: none;
+		}
+
+body{
+  background-image: url("assets/tmp2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(odd){background-color: #f2f2f2}
+tr:nth-child(even){background-color: #f2f2f2}
+tr:hover {background-color: yellow;}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}

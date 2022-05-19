@@ -1,0 +1,61 @@
+/* style for add Member form */
+*{
+  margin:0;
+  padding:0;
+}
+
+.addMember, .addMember-reg-a, .addMember-reg-grad, .addMember-m{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top:0;
+  left:0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s;
+}
+
+form{
+  position:relative;/* this use for .modal-close to be able to use as absolute and place top right*/
+  font-style: sans-serif;
+  background-color: white;
+  width: 25%;
+  height: 75%;
+  padding-top: 20px;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.inputField > input{
+  width:100%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+.form-active{
+  visibility: visible;
+	opacity: 1;
+}
+.title{
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+}
+h2{
+  color:black;
+  margin: 40px auto;
+}
+.button{
+  width: 10vw;
+  height: 30px;
+  padding-left: 10px;
+}
+.add-btn-reg-ao, .add-btn-reg-a, .add-btn-reg-grad, .add-btn-m:hover{
+  cursor: pointer;
+}

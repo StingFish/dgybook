@@ -1,0 +1,129 @@
+/* CSS for Login and Registration*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body{
+  font-size:120%;
+  background-image: url("CvSU/quad.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Ubuntu', sans-serif;
+}
+.header {
+margin: 50px auto 0px;
+color: white;
+background: #3a4af8;
+text-align: center;
+border: 1px solid #3a4af8;
+border-bottom: none;
+border-radius: 10px 10px 0px 0px;
+padding: 20px;
+}
+.button {
+border-radius: 5px;
+border:none;
+color: white;
+height: 40px;
+width: 98.5%;
+padding: 10px 10px;
+text-align: center;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+.button1 {background: linear-gradient(to right, #5bc0de, #5bc0de);}/* Green */
+.button2 {background: linear-gradient(to right, #9C27B0, #E040FB);} /* Blue */
+}
+.header {
+  width: 30%;
+  margin: 50px auto 0px;
+  color: white;
+  background: #3a4af8;
+  text-align: center;
+  border: 1px solid #3a4af8;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+}
+form{
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #B0C4DE;
+  background: white;
+  border-radius: 0px 0px 10px 10px;
+}
+.input-group {
+  margin: 10px 0px 10px 0px;
+}
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+}
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-family: 'Ubuntu', sans-serif;
+}
+.btn {
+      cursor: pointer;
+        border-radius: 5em;
+        color: #fff;
+        background: linear-gradient(to right, #9C27B0, #E040FB);
+        border: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-family: 'Ubuntu', sans-serif;
+        margin-left: 35%;
+        font-size: 13px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+
+}
+.error{
+  width: 95%;
+  text-align: center;
+  margin:5px auto;
+  padding: 5px;
+  border: 1px solid #a94442;
+  color:#a94442;
+  background: #f2dede;
+  border-radius: 5px;
+  font-family:'Ubuntu', sans-serif;
+  font-size: 12px;
+}
+@media only screen and (min-width:600px){
+  .header{
+    width: 30%;
+  }
+  form{
+    width: 30%;
+  }
+}
+@media only screen and (max-width:600px){
+  .header{
+    width: 70%;
+  }
+  form{
+    width: 70%;
+  }
+}
+/* register.php*/
+  select{
+  height: 40px;
+  width: 99%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-family: 'Ubuntu', sans-serif;
+}

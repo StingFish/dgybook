@@ -1,0 +1,267 @@
+body {
+  font-family: tahoma;
+  height: 100%;
+  width: 100%;
+  background-image: url("../assets/tmp2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  width: 450px;
+  height: 100%;
+}
+.our-team {
+  padding: 30px 0 40px;
+  margin-bottom: 30px;
+  background-color: #f7f5ec;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.our-team .picture {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  margin-bottom: 50px;
+  z-index: 1;
+  position: relative;
+}
+
+.our-team .picture::before {
+  content: "";
+  width: 100%;
+  height: 0;
+  border-radius: 50%;
+  background-color: #1369ce;
+  position: absolute;
+  bottom: 135%;
+  right: 0;
+  left: 0;
+  opacity: 0.9;
+  transform: scale(3);
+  transition: all 0.3s linear 0s;
+}
+
+.our-team:hover .picture::before {
+  height: 100%;
+}
+
+.our-team .picture::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #1369ce;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.our-team .picture img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: all 0.9s ease 0s;
+}
+
+.our-team:hover .picture img {
+  box-shadow: 0 0 0 14px #f7f5ec;
+  transform: scale(0.7);
+}
+
+.our-team .title {
+  display: block;
+  font-size: 15px;
+  color: #4e5052;
+  text-transform: capitalize;
+}
+
+.our-team .social {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #1369ce;
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  transition: all 0.5s ease 0s;
+}
+
+.our-team:hover .social {
+  bottom: 0;
+}
+
+.our-team .social li {
+  display: inline-block;
+}
+
+.our-team .social li a {
+  display: block;
+  padding: 10px;
+  font-size: 17px;
+  color: white;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.our-team .social li a:hover {
+  color: #1369ce;
+  background-color: #f7f5ec;
+}
+.team{
+  padding-left: 100px;
+  padding-right:100px;
+  background-color: #78b6ff;
+}
+blockquote{
+  font-style: italic;
+  font-family: Georgia,serif;
+  margin: 0.25em 0;
+  position: relative;
+  padding: 0.5em 1em 0.5em 2em;
+}
+blockquote:before{
+  font-family: Georgia, serif;
+  position: absolute;
+  font-size: 3em;
+  line-height: 1;
+  top:0;
+  left: 0;
+  content:"\201C";
+  color: #7a7a7a;
+}
+blockquote:after{
+  font-family: Georgia, serif;
+  position: absolute;
+  display: block;
+  float: right;
+  font-size: 3em;
+  line-height: 1;
+  right: 0;
+  bottom: -0.5em;
+  content: "\201D";
+  color: #7a7a7a;
+}
+blockquote footer{
+  padding: 0 2em 0 0;
+  text-align: right;
+}
+blockquote cite:before{
+  content: "\2013";
+}
+/* image */
+#trc {
+  width: 200px;
+  height: 200px;
+}
+.course{
+  padding:0;
+  margin:10px;
+  color:#fff;
+}
+.button1{
+  background-color: #0276d8;
+  border:none;
+  margin-right: 4%;
+  width: 48%;
+  height: 35px;
+}
+button:hover, a:hover{
+  opacity:0.7;
+}
+.button2{
+  background-color: green;
+  width: 48%;
+  height: 35px;
+}
+/* Modal design */
+.modal-bg{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+  	visibility: hidden;
+  	opacity: 0;
+    padding-top:100px;
+  	transition: visibility 0s, opacity 0.5s;
+    z-index: 2;
+}
+.bg-active{
+	visibility: visible;
+	opacity: 1;
+}
+.modal{
+	position:relative; /* this use for .modal-close to be able to use as absolute and place top right*/
+	font-style: sans-serif;
+    background-color: white;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -10%;
+}
+.modal button{
+	padding: 10px 30px;
+	background-color: #2980b9;
+	color:#fff;
+	border:none;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	cursor: pointer;
+}
+.modal-close{
+	position: absolute;
+	top:10px;
+	right: 10px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 760px){
+  .modal-bg{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    padding-top:100px;
+    transition: visibility 0s, opacity 0.5s;
+}
+.bg-active{
+  visibility: visible;
+  opacity: 1;
+}
+  .modal{
+  position:relative; /* this use for .modal-close to be able to use as absolute and place top right*/
+  font-style: sans-serif;
+    background-color: white;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+}

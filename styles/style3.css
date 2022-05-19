@@ -1,0 +1,148 @@
+/*CSS Styles for Admin*/
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+*{
+  padding:0;
+  margin:0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Ubuntu", sans-serif;
+  transition: background-color .5s;
+  background-image: url('wallpapers/wallpaper2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+header{
+  /*border:1px solid white;*/
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  margin-bottom: 25px;
+  margin-top:25px;
+  color:#fff;
+}
+h3{
+  margin-left: 10px;
+}
+i{
+  font-weight: 600;
+  font-size: 2.5em;
+  font-size: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing:antialiased;
+  display: inline-block;
+}
+.header::before{
+  font-family:"Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f007";
+
+}
+.sidenav{
+  margin: 0;
+  height: 100vh;
+  width: 200px;
+  position: fixed;
+  background-color:#0275d8;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  /*border:1px solid #fff;*/
+}
+.sidenav a:hover {
+  color: yellow;
+  padding-left:30px;
+}
+li.active{ /*active jquery sidenav link*/
+  background: #020cbd;
+}
+/* adm-container div*/
+.adm-container{
+  display: inline-flex;
+  width: 100vw;
+  height: 100vh;
+}
+.adm-container > section{
+  width: 80vw;
+  margin-left: 250px;
+}
+section{
+  height: 100vh;
+}
+/*search-container*/
+.search-container{
+  margin-top:5vh;
+  width: 15vw;
+  height: 50px;
+  margin-right:100px;
+}
+.search-container > div{
+  display: flex;
+}
+.search-container input{
+  padding-left: 10px;
+  width: 80%;
+  height: 45px;
+  border:none;
+}
+
+button{
+  background-color: #0275d8;
+  border:none;
+  padding:6px;
+  color:white;
+}
+/*table*/
+table{
+  background-color: #fff;
+  margin:auto;
+  overflow: hidden;/*para sa border-radius*/
+  border-radius: 0.5em;
+  width: 75vw;
+  max-width: 100%;
+  font-style: 'Open Sans', sans-serif;
+  border-collapse: collapse; /* to remove all the borderlines */
+}
+tbody{
+  border-radius: 12px;
+}
+th{
+  padding:15px;
+}
+tr{
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+}
+tr:nth-child(odd):not(:first-child){
+   background-color: #ebf3f9;
+}
+  tr:first-child{
+  background-color: #0275d8;
+  padding:15px;
+  color:#fff;
+  border-top: none;
+}
+th,td{
+  text-align: left;
+}
+td{
+  width: 7vw;
+  padding-left:15px;
+  padding-top:10px;
+}
+.image-official{
+  width: 80px;
+  height: 100px;
+}
