@@ -296,9 +296,6 @@ hov:hover{
 </div>
 </div>
 </header>
-  <div>
-<button id="myBtn" style="background-color:white;margin-right: 10px;margin-top:60px;padding: 10px;" class="loc">Add Data</button><br><br>
-</div>
 
 <div id="myModal" class="modal">
 

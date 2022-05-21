@@ -256,7 +256,7 @@ hov:hover{
     while ($row = mysqli_fetch_array($result)){
     echo '<center><img src="DB/'.$row['profile_image'].'" style="margin-top:-10px;width:40%;margin-left:0px;border-radius:10%;margin-bottom:-10px"></center>';
  
-  echo "<center><p style='margin-left:-10px;color:white;margin-bottom: -20px'>".$row['fname']." ".substr($row['mname'],0,1).". ".$row['lname']."</p><p style='color: #0276d8;margin-bottom: -15px'>Registrar</p></center>";
+  echo "<center><p style='margin-left:-10px;color:white;margin-bottom: -20px'>".$row['fname']." ".substr($row['mname'],0,1).". ".$row['lname']."</p><p style='color: #0276d8;margin-bottom: -15px'>Admin</p></center>";
    }
   ?>
   <center>

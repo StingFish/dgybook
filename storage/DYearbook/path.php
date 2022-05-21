@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Alumni Table</title>
+<title>View Alumni Yearbook</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
