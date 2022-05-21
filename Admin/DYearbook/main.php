@@ -295,312 +295,332 @@ text-decoration: none;
 </head>
 <body>
     <audio autoplay loop>
-  <source src="track1.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
+      <source src="track1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
 <!-- partial:index.partial.html -->
 <!-- =============================== Start Slider =============================== --> 
+    <?php 
+        $db=mysqli_connect('localhost','root','','tests');
+          if (isset($_GET["call"])) {
+            $goo = $_GET['call'];
+            $get = "SELECT * FROM tbl_addons WHERE addon_year = '$goo'";
+            $fet = mysqli_query($db, $get);
+            while ($fetch = mysqli_fetch_array($fet)){
+    ?>
+      <div class="wowslider section">
+        <ul> 
+          <!-- MILESTONE $ ACTIVITY -->
+          <li class="wow pulse wowactive" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Milestones --->
+            <h2 class="wow fadeInDown board"style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">- Milestones & Activities -</h2>
+              <div class="wow fadeIn" style="background:none">
                 <?php 
-                $db=mysqli_connect('localhost','root','','tests');
-                if (isset($_GET["call"])) {
-                  $goo = $_GET['call'];
-                $get = "SELECT * FROM tbl_addons WHERE addon_year = '$goo'";
-                $fet = mysqli_query($db, $get);
-                while ($fetch = mysqli_fetch_array($fet)){
-            ?>
-        <div class="wowslider section">
-           
-            <ul> 
-                <li class="wow pulse wowactive" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Milestones --->
-                <h2 class="wow fadeInDown board"style="font-family: 'Dancing Script', cursive; font-size: 50px; margin-top: 0;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">- Milestones & Activities -</h2>
-                    <div class="wow fadeIn" style="background:none">
-                <?php 
-                    $db=mysqli_connect('localhost','root','','tests');
-                $user_check_query = "SELECT * FROM tbl_academic WHERE academic_year = '$goo'";
-                $result = mysqli_query($db, $user_check_query);
+                  $db=mysqli_connect('localhost','root','','tests');
+                  $user_check_query = "SELECT * FROM tbl_academic WHERE academic_year = '$goo'";
+                  $result = mysqli_query($db, $user_check_query);
 
-                while ($row = mysqli_fetch_array($result)){
-                echo '<img class="zoomE" src="../../storage/Milestones & Activities/uploads/'.$row['academic_image'].'" alt="'.$row['academic_description'].'" style="width:80%; height:100%"><p>'.$row['academic_description'].'</p><br>';
-}
+                  while ($row = mysqli_fetch_array($result)){
+                  echo '<img class="zoomE" src="../../storage/Milestones & Activities/uploads/'.$row['academic_image'].'" alt="'.$row['academic_description'].'" style="width:80%; height:100%"><p>'.$row['academic_description'].'</p><br>';
+                  }
                 ?>
-<script>
-window.onload = () => {
-  //GET ALL IMAGES
-  let all = document.getElementsByClassName("zoomE");
- 
-  //CLICK TO GO FULLSCREEN
-  if (all.length>0) { 
-    for (let i of all) {
-    i.onclick = () => {
-      //EXIT FULLSCREEN
-      if (document.fullscreenElement != null || document.webkitFullscreenElement != null) {
-        if (document.exitFullscreen) { document.exitFullscreen(); }
-        else { document.webkitCancelFullScreen(); }
-      }
- 
-      //ENTER FULLSCREEN
-      else {
-        if (i.requestFullscreen) { i.requestFullscreen(); }
-        else { i.webkitRequestFullScreen(); }
-      }
-    };
-  }}
-};
-</script>
+                    <script>
+                    window.onload = () => {
+                      //GET ALL IMAGES
+                      let all = document.getElementsByClassName("zoomE");
+                    
+                      //CLICK TO GO FULLSCREEN
+                      if (all.length>0) { 
+                        for (let i of all) {
+                        i.onclick = () => {
+                          //EXIT FULLSCREEN
+                          if (document.fullscreenElement != null || document.webkitFullscreenElement != null) {
+                            if (document.exitFullscreen) { document.exitFullscreen(); }
+                            else { document.webkitCancelFullScreen(); }
+                          }
+                    
+                          //ENTER FULLSCREEN
+                          else {
+                            if (i.requestFullscreen) { i.requestFullscreen(); }
+                            else { i.webkitRequestFullScreen(); }
+                          }
+                        };
+                      }}
+                    };
+                    </script>
 
             
+              </div>
+            </li>
+            <!--- GRADUATES BSIS -->
+            <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
+              <div class="wow fadeInLeft yb-php2" style="background:none">
+                <?php 
+                  $db=mysqli_connect('localhost', 'root', '', 'tests');
+                  $user_check_query = "SELECT tbl_accounts.profile_image, tbl_students.course, tbl_sybook.slname, tbl_sybook.smname, tbl_sybook.sfname, tbl_sybook.quotes, tbl_sybook.YrSec, tbl_sybook.school_year FROM tbl_sybook JOIN tbl_students ON tbl_students.sid=tbl_sybook.sid JOIN tbl_accounts on tbl_accounts.email=tbl_students.email WHERE course='BSIS' AND school_year='$goo' ORDER BY slname";
+                  $result = mysqli_query($db, $user_check_query);
+
+                    while ($row = mysqli_fetch_array($result)){
+                        echo "<div class='container'>";
+                        echo "<div class='card' style='height:350px;'>";
+                        echo "<div class='imgBx'>";
+                        echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
+                        echo "</div>";
+                        echo "<div class='contentt'>";
+                        echo "<h2 class='unselectable' style='font-family: Oswald;'>".$row['sfname']."&nbsp;".substr($row['smname'],0,1).".&nbsp;".$row['slname']."</h2>";
+                        echo "<h3 class='unselectable' style='font-family: Oswald;'>".$row['course']."&nbsp;".$row['YrSec']."</h3>";
+                        echo "<h3 style='font-family: Oswald;'>&#10075;&#10075;".$row['quotes']."."."&#10076;&#10076;</h3>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                  }
+                ?>
+              </div>
+            </li>
+            <!--- (BANNER) GRADUATES BSIS -->
+            <li class="wow pulse" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
+                <div class="overlay">
+                    <div class="text">
+                        <center>
+                        <p class="wow fadeInRight" style="justify-content: center;width:100%;font-size: 70px;font-family: 'Dancing Script', cursive;word-wrap: break-word;">THE GRADUATES<br><small>(BSIS)</small></p></center>
+                    </div>
                 </div>
-                </li>
-                <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
-   <div class="wow fadeInLeft yb-php2" style="background:none">
-  <?php 
-  $db=mysqli_connect('localhost', 'root', '', 'tests');
-         $user_check_query = "SELECT tbl_accounts.profile_image, tbl_students.course, tbl_sybook.slname, tbl_sybook.smname, tbl_sybook.sfname, tbl_sybook.quotes, tbl_sybook.YrSec, tbl_sybook.school_year FROM tbl_sybook JOIN tbl_students ON tbl_students.sid=tbl_sybook.sid JOIN tbl_accounts on tbl_accounts.email=tbl_students.email WHERE course='BSIS' AND school_year='$goo' ORDER BY slname";
-         $result = mysqli_query($db, $user_check_query);
+            </li>
+            <!-- GRADUATES CPE --->
+            <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
+              <div class="wow fadeInLeft yb-php2" style="background:none">
+                  <?php 
+                      $db=mysqli_connect('localhost', 'root', '', 'tests');
+                      $user_check_query = "SELECT tbl_accounts.profile_image, tbl_students.course, tbl_sybook.slname, tbl_sybook.smname, tbl_sybook.sfname, tbl_sybook.quotes, tbl_sybook.YrSec, tbl_sybook.school_year FROM tbl_sybook JOIN tbl_students ON tbl_students.sid=tbl_sybook.sid JOIN tbl_accounts on tbl_accounts.email=tbl_students.email WHERE course='CPE' AND school_year='$goo' ORDER BY slname";
+                      $result = mysqli_query($db, $user_check_query);
 
-         while ($row = mysqli_fetch_array($result)){
-           echo "<div class='container'>";
-            echo "<div class='card' style='height:350px;'>";
-            echo "<div class='imgBx'>";
-            echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
-            echo "</div>";
-            echo "<div class='contentt'>";
-            echo "<h2 class='unselectable' style='font-family: Oswald;'>".$row['sfname']."&nbsp;".substr($row['smname'],0,1).".&nbsp;".$row['slname']."</h2>";
-            echo "<h3 class='unselectable' style='font-family: Oswald;'>".$row['course']."&nbsp;".$row['YrSec']."</h3>";
-            echo "<h3 style='font-family: Oswald;'>&#10075;&#10075;".$row['quotes']."."."&#10076;&#10076;</h3>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-      }
-  ?>
-   </div>
-                </li>
-                <li class="wow pulse" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
-                    <div class="overlay">
-                        <div class="text">
-                            <center>
-                            <p class="wow fadeInRight" style="justify-content: center;width:100%;font-size: 70px;font-family: 'Dancing Script', cursive;word-wrap: break-word;">THE GRADUATES<br><small>(BSIS)</small></p></center>
-                        </div>
+                      while ($row = mysqli_fetch_array($result)){
+                          echo "<div class='container'>";
+                          echo "<div class='card' style='height:350px;'>";
+                          echo "<div class='imgBx'>";
+                          echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
+                          echo "</div>";
+                          echo "<div class='contentt'>";
+                          echo "<h2 class='unselectable' style='font-family: Oswald;'>".$row['sfname']."&nbsp;".substr($row['smname'],0,1).".&nbsp;".$row['slname']."</h2>";
+                          echo "<h3 class='unselectable' style='font-family: Oswald;'>".$row['course']."&nbsp;".$row['YrSec']."</h3>";
+                          echo "<h3 style='font-family: Oswald;'>&#10075;&#10075;".$row['quotes']."."."&#10076;&#10076;</h3>";
+                          echo "</div>";
+                          echo "</div>";
+                          echo "</div>";
+                      }
+                    ?>
+                </div>
+            </li>
+            <!--- (BANNER) GRADUATES CPE -->
+            <li class="wow pulse" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
+                <div class="overlay">
+                    <div class="text">
+                        <center>
+                        <p class="wow fadeInRight" style="justify-content: center;width:100%;font-size: 70px;font-family: 'Dancing Script', cursive;word-wrap: break-word;">THE GRADUATES<br><small>(CPE)</small></p></center>
                     </div>
-                </li>
-                <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
-   <div class="wow fadeInLeft yb-php2" style="background:none">
-  <?php 
-  $db=mysqli_connect('localhost', 'root', '', 'tests');
-         $user_check_query = "SELECT tbl_accounts.profile_image, tbl_students.course, tbl_sybook.slname, tbl_sybook.smname, tbl_sybook.sfname, tbl_sybook.quotes, tbl_sybook.YrSec, tbl_sybook.school_year FROM tbl_sybook JOIN tbl_students ON tbl_students.sid=tbl_sybook.sid JOIN tbl_accounts on tbl_accounts.email=tbl_students.email WHERE course='CPE' AND school_year='$goo' ORDER BY slname";
-         $result = mysqli_query($db, $user_check_query);
+                </div>
+            </li>
+            <!--- LATIN HONOR -->
+            <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
+                <div class="wow fadeInLeft yb-php2" style="background:none">
+                  <?php 
+                      $db=mysqli_connect('localhost', 'root', '', 'tests');
+                      $user_check_query = "SELECT tbl_accounts.profile_image, tbl_students.course, tbl_students.honor, tbl_sybook.slname, tbl_sybook.smname, tbl_sybook.sfname, tbl_sybook.quotes, tbl_sybook.YrSec, tbl_sybook.school_year FROM tbl_sybook JOIN tbl_students ON tbl_students.sid=tbl_sybook.sid JOIN tbl_accounts on tbl_accounts.email=tbl_students.email WHERE NOT honor='' AND school_year='$goo' ORDER BY slname";
+                      $result = mysqli_query($db, $user_check_query);
 
-         while ($row = mysqli_fetch_array($result)){
-           echo "<div class='container'>";
-            echo "<div class='card' style='height:350px;'>";
-            echo "<div class='imgBx'>";
-            echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
-            echo "</div>";
-            echo "<div class='contentt'>";
-            echo "<h2 class='unselectable' style='font-family: Oswald;'>".$row['sfname']."&nbsp;".substr($row['smname'],0,1).".&nbsp;".$row['slname']."</h2>";
-            echo "<h3 class='unselectable' style='font-family: Oswald;'>".$row['course']."&nbsp;".$row['YrSec']."</h3>";
-            echo "<h3 style='font-family: Oswald;'>&#10075;&#10075;".$row['quotes']."."."&#10076;&#10076;</h3>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-      }
-  ?>
-   </div>
-                </li>
-                <li class="wow pulse" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
-                    <div class="overlay">
-                        <div class="text">
-                            <center>
-                            <p class="wow fadeInRight" style="justify-content: center;width:100%;font-size: 70px;font-family: 'Dancing Script', cursive;word-wrap: break-word;">THE GRADUATES<br><small>(CPE)</small></p></center>
-                        </div>
+                        while ($row = mysqli_fetch_array($result)){
+                          echo "<div class='container'>";
+                            echo "<div class='card' style='height:350px;'>";
+                            echo "<div class='imgBx'>";
+                            echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
+                            echo "</div>";
+                            echo "<div class='contentt'>";
+                            echo "<h2 class='unselectable' style='font-family: Oswald;'>".$row['sfname']."&nbsp;".substr($row['smname'],0,1).".&nbsp;".$row['slname']."</h2>";
+                            echo "<h3 class='unselectable' style='font-family: Oswald;font-text:normal'>".$row['honor']."</h3>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                      }
+                  ?>
+               </div>
+            </li>
+            <!--- (BANNER) LATIN HONOR -->
+            <li class="wow pulse" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
+                <div class="overlay">
+                    <div class="text">
+                        <center>
+                        <p class="wow fadeInRight" style="justify-content: center;width:100%;font-size: 70px;font-family: 'Dancing Script', cursive;word-wrap: break-word;">LATIN HONORS<br></p></center>
                     </div>
-                </li>
-                 <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
-   <div class="wow fadeInLeft yb-php2" style="background:none">
-  <?php 
-  $db=mysqli_connect('localhost', 'root', '', 'tests');
-         $user_check_query = "SELECT tbl_accounts.profile_image, tbl_students.course, tbl_students.honor, tbl_sybook.slname, tbl_sybook.smname, tbl_sybook.sfname, tbl_sybook.quotes, tbl_sybook.YrSec, tbl_sybook.school_year FROM tbl_sybook JOIN tbl_students ON tbl_students.sid=tbl_sybook.sid JOIN tbl_accounts on tbl_accounts.email=tbl_students.email WHERE NOT honor='' AND school_year='$goo' ORDER BY slname";
-         $result = mysqli_query($db, $user_check_query);
+                </div>
+            </li>
+            <!--- ACADEMIC AFFAIRS-->
+            <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
+                <div class="wow fadeInUp yb-php2" style="background:none">
+                  <?php 
+                      $db=mysqli_connect('localhost','root','','tests');
+                      $user_check_query = "SELECT tbl_accounts.profile_image, tbl_eybook.elname, tbl_eybook.emname, tbl_eybook.efname, tbl_eybook.work_status, tbl_eybook.department, tbl_eybook.employee_year FROM tbl_eybook JOIN tbl_employees ON tbl_employees.eid=tbl_eybook.eid JOIN tbl_accounts on tbl_accounts.email=tbl_employees.email WHERE employee_year='$goo' AND department='Academic Affairs' ORDER BY elname";
+                      $result = mysqli_query($db, $user_check_query);
 
-         while ($row = mysqli_fetch_array($result)){
-           echo "<div class='container'>";
-            echo "<div class='card' style='height:350px;'>";
-            echo "<div class='imgBx'>";
-            echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
-            echo "</div>";
-            echo "<div class='contentt'>";
-            echo "<h2 class='unselectable' style='font-family: Oswald;'>".$row['sfname']."&nbsp;".substr($row['smname'],0,1).".&nbsp;".$row['slname']."</h2>";
-            echo "<h3 class='unselectable' style='font-family: Oswald;font-text:normal'>".$row['honor']."</h3>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-      }
-  ?>
-   </div>
-                </li>
-                <li class="wow pulse" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
-                    <div class="overlay">
-                        <div class="text">
-                            <center>
-                            <p class="wow fadeInRight" style="justify-content: center;width:100%;font-size: 70px;font-family: 'Dancing Script', cursive;word-wrap: break-word;">LATIN HONORS<br></p></center>
-                        </div>
-                    </div>
-                </li>
-                 <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
-   <div class="wow fadeInUp yb-php2" style="background:none">
-  <?php 
-  $db=mysqli_connect('localhost','root','','tests');
-         $user_check_query = "SELECT tbl_accounts.profile_image, tbl_eybook.elname, tbl_eybook.emname, tbl_eybook.efname, tbl_eybook.work_status, tbl_eybook.department, tbl_eybook.employee_year FROM tbl_eybook JOIN tbl_employees ON tbl_employees.eid=tbl_eybook.eid JOIN tbl_accounts on tbl_accounts.email=tbl_employees.email WHERE employee_year='$goo' AND department='Academic Affairs' ORDER BY elname";
-         $result = mysqli_query($db, $user_check_query);
-
-         while ($row = mysqli_fetch_array($result)){
-            echo "<div class='container'>";
-            echo "<div class='card' style='height:350px;'>";
-            echo "<div class='imgBx'>";
-            echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
-            echo "</div>";
-            echo "<div class='contentt' style='font-family: Oswald'>";
-            echo "<h2 style='margin-top:0;font-family: Oswald;'>".$row['efname']."&nbsp;".substr($row['emname'],0,1).".&nbsp;".$row['elname']."</h2>";
-            echo $row['work_status'];
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-      }
-  ?>
-   </div>
-                </li>
-                <li class="wow pulse" > <!--- Academic --->
+                        while ($row = mysqli_fetch_array($result)){
+                            echo "<div class='container'>";
+                            echo "<div class='card' style='height:350px;'>";
+                            echo "<div class='imgBx'>";
+                            echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
+                            echo "</div>";
+                            echo "<div class='contentt' style='font-family: Oswald'>";
+                            echo "<h2 style='margin-top:0;font-family: Oswald;'>".$row['efname']."&nbsp;".substr($row['emname'],0,1).".&nbsp;".$row['elname']."</h2>";
+                            echo $row['work_status'];
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                      }
+                  ?>
+                </div>
+            </li>
+            <!--- (BANNER) ACADEMIC AFFAIRS -->
+                <li class="wow pulse" > 
                     <div class="overlay" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
                         <div class="text">
                             <center>
                             <p class="wow fadeInRight" style="justify-content: center;width:100%;font-size: 70px;font-family: 'Dancing Script', cursive;word-wrap: break-word;">ACADEMIC AFFAIRS</p></center>
                         </div>
                     </div>
-                </li>
-                <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
-   <div class="wow zoomIn yb-php2" style="background:none">
-  <?php 
-  $db=mysqli_connect('localhost', 'root', '', 'tests');
-         $user_check_query = "SELECT tbl_accounts.profile_image, tbl_eybook.elname, tbl_eybook.emname, tbl_eybook.efname, tbl_eybook.titlename, tbl_eybook.work_status, tbl_eybook.department, tbl_eybook.employee_rank, tbl_eybook.employee_year FROM tbl_eybook JOIN tbl_employees ON tbl_employees.eid=tbl_eybook.eid JOIN tbl_accounts on tbl_accounts.email=tbl_employees.email WHERE employee_year='$goo' AND department='Administrative Officers' ORDER BY employee_rank,elname";
-         $result = mysqli_query($db, $user_check_query);
+            </li>
+            <!--- ADMINISTRATIVE OFFICER -->
+            <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Administrative --->
+              <div class="wow zoomIn yb-php2" style="background:none">
+                <?php 
+                    $db=mysqli_connect('localhost', 'root', '', 'tests');
+                    $user_check_query = "SELECT tbl_accounts.profile_image, tbl_eybook.elname, tbl_eybook.emname, tbl_eybook.efname, tbl_eybook.titlename, tbl_eybook.work_status, tbl_eybook.department, tbl_eybook.employee_rank, tbl_eybook.employee_year FROM tbl_eybook JOIN tbl_employees ON tbl_employees.eid=tbl_eybook.eid JOIN tbl_accounts on tbl_accounts.email=tbl_employees.email WHERE employee_year='$goo' AND department='Administrative Officers' ORDER BY employee_rank,elname";
+                    $result = mysqli_query($db, $user_check_query);
 
-         while ($row = mysqli_fetch_array($result)){
-            $te = $row['titlename'];
-            if (!empty($te)) {
-                $tle = ", ".$row['titlename'];
-            }else{
-                $tle = "";
-            }
-            
-            echo "<div class='container'>";
-            echo "<div class='card' style='height:350px;'>";
-            echo "<div class='imgBx'>";
-            echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
-            echo "</div>";
-            echo "<div class='contentt'  style='font-family: Oswald;'>";
-            echo "<h2 style='margin-top:0;font-family: Oswald;'>".$row['efname']."&nbsp;".substr($row['emname'],0,1).".&nbsp;".$row['elname'].$tle."</h2>";
-            echo $row['work_status'];
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-      }
-  ?>
-   </div>
-                </li>
-                <li class="wow pulse"> <!--- Administrative --->
-                    <div class="overlay" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
-                        <div class="text">
-                            <center>
-                            <p class="wow fadeInLeft" style="justify-content: center;width:100%;font-size: 70px;font-family: 'Dancing Script', cursive;word-wrap: break-word;">ADMINISTRATIVE OFFICERS</p></center>
-                        </div>
+                      while ($row = mysqli_fetch_array($result)){
+                          $te = $row['titlename'];
+                          if (!empty($te)) {
+                              $tle = ", ".$row['titlename'];
+                          }else{
+                              $tle = "";
+                          }
+                          
+                          echo "<div class='container'>";
+                          echo "<div class='card' style='height:350px;'>";
+                          echo "<div class='imgBx'>";
+                          echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
+                          echo "</div>";
+                          echo "<div class='contentt'  style='font-family: Oswald;'>";
+                          echo "<h2 style='margin-top:0;font-family: Oswald;'>".$row['efname']."&nbsp;".substr($row['emname'],0,1).".&nbsp;".$row['elname'].$tle."</h2>";
+                          echo $row['work_status'];
+                          echo "</div>";
+                          echo "</div>";
+                          echo "</div>";
+                    }
+                ?>
+              </div>
+            </li>
+            <!--- (BANNER) ADMINISTRATIVE OFFICERS -->
+            <li class="wow pulse">
+                <div class="overlay" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+                    <div class="text">
+                      <center>
+                        <p class="wow fadeInLeft" style="justify-content: center;width:100%;font-size: 70px;font-family: 'Dancing Script', cursive;word-wrap: break-word;">ADMINISTRATIVE OFFICERS</p>
+                      </center>
                     </div>
-                </li>
-                    <li class="wow pulse" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Message --->
-                    
-                            <?php
-                        echo "<div class='yb-php' style='background:none;overflow-y: scroll;overflow-x: hidden;' id='text2'>";
-                        echo '<center><img class="wow fadeInDown imahe" src="../../storage/Extras Database/uploads/'.$fetch["messages"].'" style="width:80%;height: 100%;"></center>
-                        </div>';
-
-                            ?>
-                        
-                    
-                </li>
-                <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Vision --->
-                    <div class="overlay" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
-                        <div class="text">
-                            <div class="yb-php" style="background:none;" id="text2">
+                </div>
+            </li>
+            <!--- MESSAGE PHOTO -->
+            <li class="wow pulse" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Message --->
+                <?php
+                  echo "<div class='yb-php' style='background:none;overflow-y: scroll;overflow-x: hidden;' id='text2'>";
+                  echo '<center><img class="wow fadeInDown imahe" src="../../storage/Extras Database/uploads/'.$fetch["messages"].'" style="width:80%;height: 100%;"></center>
+                  </div>';
+                ?>
+            </li>
+            <!--- VISION -->
+            <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Vision --->
+                <div class="overlay" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+                    <div class="text">
+                        <div class="yb-php" style="background:none;" id="text2">
                             <center><h2 class="wow zoomIn"><b>VISION</b></h2>
-                            <p class="wow fadeInLeft" style="justify-content: center;width:80%;font-family: Oswald;">The Dr. Filemon C. Aguilar Memorial College of Las Piñas (DFCAMCLP), as a public institution of higher learning, commits itself to educate and serve the less priviledge but deserving students of Las Piñas City.<br><br>
-                            &nbsp;Through quality tertiary education by emphasizing the importance of knowledge and skills honed through strong values fashioned from the best in human and Filipino tradition. It shall strive to achieve responsible service that will contribute to the common efforts towards community building, national development and global solidarity.
-                            </p></center>
+                              <p class="wow fadeInLeft" style="justify-content: center;width:80%;font-family: Oswald;">The Dr. Filemon C. Aguilar Memorial College of Las Piñas (DFCAMCLP), as a public institution of higher learning, commits itself to educate and serve the less priviledge but deserving students of Las Piñas City.<br><br>
+                                &nbsp;Through quality tertiary education by emphasizing the importance of knowledge and skills honed through strong values fashioned from the best in human and Filipino tradition. It shall strive to achieve responsible service that will contribute to the common efforts towards community building, national development and global solidarity.
+                              </p>
+                            </center>
                         </div>
                     </div>
                 </div>
-                </li>
-                <li class="wow pulse"> <!--- Mission --->
-                    <div class="overlay" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
-                        <div class="text">
-                            <center><h2 class="wow fadeInRight"><b>MISSION</b></h2>
-                            <p class="wow fadeInLeft" style="justify-content: center;width:100%;font-size: 40px;font-family: Oswald;">Guided by its vision, the DFCAMCLP committed to: Motivate and develop competent, productive and ethical professionals, leaders and citizens of Las Piñas.</p></center>
-                        </div>
+            </li>
+            <!--- MISSION -->
+            <li class="wow pulse">
+              <div class="overlay" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+                  <div class="text">
+                      <center><h2 class="wow fadeInRight"><b>MISSION</b></h2>
+                        <p class="wow fadeInLeft" style="justify-content: center;width:100%;font-size: 40px;font-family: Oswald;">Guided by its vision, the DFCAMCLP committed to: Motivate and develop competent, productive and ethical professionals, leaders and citizens of Las Piñas.</p>
+                      </center>
+                  </div>
+              </div>
+            </li>
+            <!--- TITLE -->
+            <li class="wow pulse">
+                <div class="overlay" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+                    <div class="text">
+                        <center><strong><h2 class="wow zoomIn" data-wow-delay=".2s" style="font-family:Oswald;"><?php echo $fetch['front_title'];?></h2></strong></center>
                     </div>
-                </li>
-               
-                <li class="wow pulse"> <!--- Title --->
-                    <div class="overlay" style="background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
-                        <div class="text">
-                            <center><strong><h2 class="wow zoomIn" data-wow-delay=".2s" style="font-family:Oswald;"><?php echo $fetch['front_title'];?></h2></strong></center>
-                        </div>
-                    </div>
-                </li>
-                <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Front Page --->
-                    <div class="overlay">
-                        <div class="text">
-                            <center>
-                            <p class="wow fadeInLeft" style="justify-content: center;width:100%;font-family: Oswald;"><?php 
-                    $db=mysqli_connect('localhost','root','','tests');
-                $user_check_query = "SELECT * FROM folder2 WHERE year = '$goo' LIMIT 1";
-                $result = mysqli_query($db, $user_check_query);
+                </div>
+            </li>
+            <!--- YEARBOOK PHOTO -->
+            <li class="wow pulse" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;"> <!--- Front Page --->
+                <div class="overlay">
+                    <div class="text">
+                        <center>
+                          <p class="wow fadeInLeft" style="justify-content: center;width:100%;font-family: Oswald;">
+                          
+                          <?php 
+                            $db=mysqli_connect('localhost','root','','tests');
+                            $user_check_query = "SELECT * FROM folder2 WHERE year = '$goo' LIMIT 1";
+                            $result = mysqli_query($db, $user_check_query);
 
-                while ($row = mysqli_fetch_array($result)){
-                echo '<img class="wow fadeInDown" src="../../storage/EYearbook Database/FrontImage/'.$row['frontImage'].'"  style="width:80%; height:100%;vertical-align:middle">';
-            }
-                ?></center>
-                        </div>
+                              while ($row = mysqli_fetch_array($result)){
+                              echo '<img class="wow fadeInDown" src="../../storage/EYearbook Database/FrontImage/'.$row['frontImage'].'"  style="width:80%; height:100%;vertical-align:middle">';
+                          }
+                          ?>
+                        </center>
                     </div>
-            </ul>
-                <!--- Float Exit --->
-                <a href="path.php" class="float">
-                <i class="my-float" style="font-family: Oswald;font-size: 40px;font-style: normal;">&#215;</i>
-                </a>
-                <div class="label-container">
-                <div class="label-text">Exit</div>
-                <i class="label-arrow"></i>
-                </div>
+                  </div>
+              </li>
+          </ul>
 
-            <div class="ctrl">
-                <div class="ctrl-content">
-                    <i class="fa fa-2x" style="font-size: 80px;"><</i>
-                    <div class="image">
-                        <h2></h2>
-                    </div>
-                </div>
-                <div class="ctrl-content">
-                    <i class="fa fa-2x" style="font-size: 80px;">></i>
-                    <div class="image"></div>
-                </div>
+        
+          <!--- Float Exit --->
+          <a href="path.php" class="float">
+              <i class="my-float" style="font-family: Oswald;font-size: 40px;font-style: normal;">&#215;</i>
+          </a>
+          <div class="label-container">
+              <div class="label-text">Exit</div>
+              <i class="label-arrow"></i>
+          </div>
+
+          <div class="ctrl">
+              <div class="ctrl-content">
+                  <i class="fa fa-2x" style="font-size: 80px;"><</i>
+              <div class="image">
+              <h2></h2>
+          </div>
+
+          </div>
+          <div class="ctrl-content">
+            <i class="fa fa-2x" style="font-size: 80px;">></i>
+            <div class="image"></div>
             </div>
-            <?php 
+          </div>
+          <?php 
+          }
         }
-      }
-            ?>
-        </div>
+          ?>
+      </div>
         <!-- =============================== End Slider =============================== -->
 <!-- partial -->
 
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
 <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/jquery.parallax.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.js'></script>
