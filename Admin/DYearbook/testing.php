@@ -24,12 +24,42 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="testing.css">
     <link rel="stylesheet" type="text/css" href="D1.css">
+
+    <link rel='stylesheet' href='styles/animate.min.css'>
+    <link rel='stylesheet' href='styles/jquery.fullPage.min.css'>
+    <link rel="stylesheet" href="ms.css">
+    <link rel="stylesheet" href="css/image-zoom.css">
+    <link rel="stylesheet" href="css/zoom.css">
   </head>
 
   <body>
   <div class="exit"><a href="path.php"><i class="fa-solid fa-circle-xmark fa-3x" style="color:#cefdff"></i></a></div>
     <!-- Slider main container -->
     <div class="swiper-container">
+    <script>
+                    window.onload = () => {
+                      //GET ALL IMAGES
+                      let all = document.getElementsByClassName("zoomE");
+                    
+                      //CLICK TO GO FULLSCREEN
+                      if (all.length>0) { 
+                        for (let i of all) {
+                        i.onclick = () => {
+                          //EXIT FULLSCREEN
+                          if (document.fullscreenElement != null || document.webkitFullscreenElement != null) {
+                            if (document.exitFullscreen) { document.exitFullscreen(); }
+                            else { document.webkitCancelFullScreen(); }
+                          }
+                    
+                          //ENTER FULLSCREEN
+                          else {
+                            if (i.requestFullscreen) { i.requestFullscreen(); }
+                            else { i.webkitRequestFullScreen(); }
+                          }
+                        };
+                      }}
+                    };
+                    </script>
         <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -77,7 +107,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
                     <?php
                         echo "<div class='yb-php' style='background:none;overflow-y: scroll;overflow-x: hidden;' id='text2'>";
-                        echo '<center><img class="wow fadeInDown imahe" src="../../storage/Extras Database/uploads/'.$fetch["messages"].'" style="width:35%;height: 80%;"></center>
+                        echo '<center><img class="zoomE wow fadeInDown imahe" src="../../storage/Extras Database/uploads/'.$fetch["messages"].'" style="width:35%;height: 80%;"></center>
                         </div>';
                     ?>
                 </div>
@@ -271,5 +301,9 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
         },
     })
     </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3211/jquery.parallax.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.js'></script>
   </body>
 </html>
