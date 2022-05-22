@@ -54,7 +54,7 @@ body {
   padding: 5px 10px;    
   border-radius: 0;
   width: auto;
-  height: 30px;
+  height: 40px;
   text-align: center;
   line-height: 30px;
   font-size: 12px;
@@ -125,6 +125,7 @@ body {
     width: 90%;
     height: 35%;
     vertical-align: middle;
+    position: absolute;
 }
 /* ------------------ Mission Vision --------*/
 .missionvision{
@@ -220,7 +221,11 @@ body {
     80% { transform: translateX(10px); }
     100% { transform: translateX(0); }
   }
-/* ------------------ COVER ----------------------*/
+/* ------------------ confetti----------------------*/
+canvas {
+    width:100%;
+    height:100%;
+  }
 /* ---------------- MEDIA QUERIES ------------------*/
 @media screen and (max-width: 959px) and (min-width: 768px) {
    
