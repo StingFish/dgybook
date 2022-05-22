@@ -21,12 +21,13 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
     />
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="testing.css">
     <link rel="stylesheet" type="text/css" href="D1.css">
   </head>
 
   <body>
-    
+  <div class="exit"><a href="path.php"><i class="fa-solid fa-circle-xmark fa-3x" style="color:#cefdff"></i></a></div>
     <!-- Slider main container -->
     <div class="swiper-container">
         <!-- Additional required wrapper -->
@@ -57,7 +58,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                 </div>
                 <!--- MISSION -->
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
-                    <div class="missionvision">
+                    <div class="missionvision vision">
                         <h2>MISSION</h2>
                         <p>Guided by its vision, the DFCAMCLP committed to: Motivate and develop competent, productive and ethical professionals, leaders and citizens of Las Piñas.</p>
                     </div>
@@ -86,7 +87,6 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                         <h1>ADMINISTRATIVE OFFICERS</h1>
                         <div class="wrapping">
                             <?php 
-                                $db=mysqli_connect('localhost', 'root', '', 'tests');
                                 $user_check_query = "SELECT tbl_accounts.profile_image, tbl_eybook.elname, tbl_eybook.emname, tbl_eybook.efname, tbl_eybook.titlename, tbl_eybook.work_status, tbl_eybook.department, tbl_eybook.employee_rank, tbl_eybook.employee_year FROM tbl_eybook JOIN tbl_employees ON tbl_employees.eid=tbl_eybook.eid JOIN tbl_accounts on tbl_accounts.email=tbl_employees.email WHERE employee_year='$goo' AND department='Administrative Officers' ORDER BY employee_rank,elname";
                                 $result = mysqli_query($db, $user_check_query);
 
@@ -120,7 +120,6 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                         <h1>ACADEMIC AFFAIRS</h1>
                         <div class="wrapping">
                             <?php 
-                                $db=mysqli_connect('localhost','root','','tests');
                                 $user_check_query = "SELECT tbl_accounts.profile_image, tbl_eybook.elname, tbl_eybook.emname, tbl_eybook.efname, tbl_eybook.work_status, tbl_eybook.department, tbl_eybook.employee_year FROM tbl_eybook JOIN tbl_employees ON tbl_employees.eid=tbl_eybook.eid JOIN tbl_accounts on tbl_accounts.email=tbl_employees.email WHERE employee_year='$goo' AND department='Academic Affairs' ORDER BY elname";
                                 $result = mysqli_query($db, $user_check_query);
 
@@ -148,7 +147,6 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                         <h1>LATIN HONORS</h1>
                         <div class="latin">
                             <?php 
-                                $db=mysqli_connect('localhost', 'root', '', 'tests');
                                 $user_check_query = "SELECT tbl_accounts.profile_image, tbl_students.course, tbl_students.honor, tbl_sybook.slname, tbl_sybook.smname, tbl_sybook.sfname, tbl_sybook.quotes, tbl_sybook.YrSec, tbl_sybook.school_year FROM tbl_sybook JOIN tbl_students ON tbl_students.sid=tbl_sybook.sid JOIN tbl_accounts on tbl_accounts.email=tbl_students.email WHERE NOT honor='' AND school_year='$goo' ORDER BY slname";
                                 $result = mysqli_query($db, $user_check_query);
 
@@ -228,7 +226,6 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                     <h1>Milestones </h1>
                     <div class="milestones">
                         <?php 
-                          $db=mysqli_connect('localhost','root','','tests');
                           $user_check_query = "SELECT * FROM tbl_academic WHERE academic_year = '$goo'";
                           $result = mysqli_query($db, $user_check_query);
         
@@ -244,6 +241,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                     </div>  
                 </div>
             </div>
+            
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
         

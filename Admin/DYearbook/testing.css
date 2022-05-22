@@ -7,6 +7,7 @@ html,
 body {
   position: relative;
   height: 100%;
+  width: 100%;
 }
 body {
   background: #eee;
@@ -42,7 +43,6 @@ body {
 }
 .swiper-pagination {
   position: absolute;
-  top: 10px;
   right: 20%;
   width: auto !important;
   left: auto !important;
@@ -73,6 +73,10 @@ body {
 }
 .swiper-button-next:hover,.swiper-button-prev:hover{
     background-color: #000;
+}
+/* ------------ VAR -------------------------*/
+.var{
+    border: 2px solid white;
 }
 /* -----------------Background Image Green--------------------- */
 .slide1{
@@ -160,4 +164,21 @@ body {
 }
 .description{
     margin: 20px 0 50px 0;
+}
+/*-------------- Floating EXIT btn ----------------*/
+.exit{
+    position: fixed;
+    top: 90%;
+    left: 96%;
+    right: 5%;
+    bottom: 5%;
+    z-index: 10;
+    margin: auto;
+}
+.exit:hover{
+    opacity:0.2;
+}
+/* ---------------- MEDIA QUERIES ------------------*/
+@media screen and (max-width: 959px) and (min-width: 768px) {
+   
 }
