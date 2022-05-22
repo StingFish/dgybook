@@ -78,25 +78,25 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                         $result = mysqli_query($db, $user_check_query);
 
                             while ($row = mysqli_fetch_array($result)){
-                                echo '<img class="yearbookImage" src="../../storage/EYearbook Database/FrontImage/'.$row['frontImage'].'"  style="width:30%; height:80%;vertical-align:middle">';
+                                echo '<img class="yearbookImage hithere" src="../../storage/EYearbook Database/FrontImage/'.$row['frontImage'].'"  style="width:30%; height:80%;vertical-align:middle">';
                             }
                     ?>
                 </div>
                 <!--- TITLE -->
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
-                    <h2><?php echo $fetch['front_title'];?></h2>
+                    <h2 class="bounce-in-right theme"><?php echo $fetch['front_title'];?></h2>
                 </div>
                 <!--- MISSION -->
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
                     <div class="missionvision vision">
-                        <h2>MISSION</h2>
+                        <h2 class="missionv">MISSION</h2>
                         <p>Guided by its vision, the DFCAMCLP committed to: Motivate and develop competent, productive and ethical professionals, leaders and citizens of Las Piñas.</p>
                     </div>
                 </div>
                 <!-- VISION -->
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
                     <div class="missionvision vision">
-                        <h2>VISION</h2>
+                        <h2 class="missionv" >VISION</h2>
                         <p>
                             The Dr. Filemon C. Aguilar Memorial College of Las Piñas (DFCAMCLP), as a public institution of higher learning, commits itself to educate and serve the less priviledge but deserving students of Las Piñas City.
                             Through quality tertiary education by emphasizing the importance of knowledge and skills honed through strong values fashioned from the best in human and Filipino tradition. It shall strive to achieve responsible service that will contribute to the common efforts towards community building, national development and global solidarity.
@@ -114,7 +114,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                 <!--- ADMINISTRATIVE OFFICERS -->
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
                     <div class="layout">
-                        <h1>ADMINISTRATIVE OFFICERS</h1>
+                        <h1 class="title">Administrative Officers</h1>
                         <div class="wrapping">
                             <?php 
                                 $user_check_query = "SELECT tbl_accounts.profile_image, tbl_eybook.elname, tbl_eybook.emname, tbl_eybook.efname, tbl_eybook.titlename, tbl_eybook.work_status, tbl_eybook.department, tbl_eybook.employee_rank, tbl_eybook.employee_year FROM tbl_eybook JOIN tbl_employees ON tbl_employees.eid=tbl_eybook.eid JOIN tbl_accounts on tbl_accounts.email=tbl_employees.email WHERE employee_year='$goo' AND department='Administrative Officers' ORDER BY employee_rank,elname";
@@ -147,7 +147,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                 <!--- ACADEMIC AFFAIRS -->
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
                     <div class="layout">
-                        <h1>ACADEMIC AFFAIRS</h1>
+                        <h1 class="title">Academic Affairs</h1>
                         <div class="wrapping">
                             <?php 
                                 $user_check_query = "SELECT tbl_accounts.profile_image, tbl_eybook.elname, tbl_eybook.emname, tbl_eybook.efname, tbl_eybook.work_status, tbl_eybook.department, tbl_eybook.employee_year FROM tbl_eybook JOIN tbl_employees ON tbl_employees.eid=tbl_eybook.eid JOIN tbl_accounts on tbl_accounts.email=tbl_employees.email WHERE employee_year='$goo' AND department='Academic Affairs' ORDER BY elname";
@@ -174,7 +174,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                 <!--- LATIN HONOR -->
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
                     <div class="layout">
-                        <h1>LATIN HONORS</h1>
+                        <h1 class="title">Latin Honors</h1>
                         <div class="latin">
                             <?php 
                                 $user_check_query = "SELECT tbl_accounts.profile_image, tbl_students.course, tbl_students.honor, tbl_sybook.slname, tbl_sybook.smname, tbl_sybook.sfname, tbl_sybook.quotes, tbl_sybook.YrSec, tbl_sybook.school_year FROM tbl_sybook JOIN tbl_students ON tbl_students.sid=tbl_sybook.sid JOIN tbl_accounts on tbl_accounts.email=tbl_students.email WHERE NOT honor='' AND school_year='$goo' ORDER BY slname";
@@ -200,7 +200,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                 <!--- GRADUATES CPE -->
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
                     <div class="layout">
-                    <h1>CPE</h1>
+                    <h1 class="title">CPE</h1>
                     <div class="wrapping">
                         <?php 
                             $user_check_query = "SELECT tbl_accounts.profile_image, tbl_students.course, tbl_sybook.slname, tbl_sybook.smname, tbl_sybook.sfname, tbl_sybook.quotes, tbl_sybook.YrSec, tbl_sybook.school_year FROM tbl_sybook JOIN tbl_students ON tbl_students.sid=tbl_sybook.sid JOIN tbl_accounts on tbl_accounts.email=tbl_students.email WHERE course='CPE' AND school_year='$goo' ORDER BY slname";
@@ -227,7 +227,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                 <!--- GRADUATES BSIS -->
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
                     <div class="layout">
-                    <h1>BSIS</h1>
+                    <h1 class="title">BS Information Technology</h1>
                     <div class="wrapping">
                         <?php 
                             $user_check_query = "SELECT tbl_accounts.profile_image, tbl_students.course, tbl_sybook.slname, tbl_sybook.smname, tbl_sybook.sfname, tbl_sybook.quotes, tbl_sybook.YrSec, tbl_sybook.school_year FROM tbl_sybook JOIN tbl_students ON tbl_students.sid=tbl_sybook.sid JOIN tbl_accounts on tbl_accounts.email=tbl_students.email WHERE course='BSIS' AND school_year='$goo' ORDER BY slname";
@@ -253,7 +253,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                 </div>
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background: url('../../bground/<?php echo $fetch['background'] ?>');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
                     <div class="layout">
-                    <h1>Milestones </h1>
+                    <h1 class="title">Milestones </h1>
                     <div class="milestones">
                         <?php 
                           $user_check_query = "SELECT * FROM tbl_academic WHERE academic_year = '$goo'";
