@@ -365,7 +365,7 @@ window.onclick = function(event) {
          while ($row = mysqli_fetch_array($result)){
             echo "<div class='container' style='float:left;'>";
             echo "<div class='imgBx' style='border:none;'>";
-            echo '<a href="main.php?call='.$row["year"].'"><img name="nooo" class="pic" src="CvSU/db.png" style="width:300px;"/></a>';
+            echo '<a href="testing.php?call='.$row["year"].'"><img name="nooo" class="pic" src="CvSU/db.png" style="width:300px;"/></a>';
             
             echo "<div class='contentt' style='margin-top: -30px;color:black;'>";
             echo "<center style='font-weight:bold;'>".$row["year"].".xlsx</center>";
