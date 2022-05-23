@@ -14,14 +14,9 @@ $mysqli = new mysqli('localhost', 'root', '', 'tests') or die(mysqli_error($mysq
 
 if(isset($_GET['email'])){
 	$file = $_GET['email'];
-  $file2 = $_GET['file'];
   $Yrr = $_SESSION['Use'];
   $path = "uploads/" . $file;
-  $path2 = "../../bground/" . $file;
   if (!unlink($path)) {
-    echo "<script>alert('You already delete it.');window.location='index.php';</script>";
-  }
-  if (!unlink($path2)) {
     echo "<script>alert('You already delete it.');window.location='index.php';</script>";
   }
   else{
@@ -45,7 +40,7 @@ if(isset($_GET['edit'])){
     <link rel='shortcut icon' href='CvSU/logo-removebg.png'>
    </head>";
 		echo "<body>";
-		echo "<div class='container'>
+		echo "<div class='container' style='margin-top: 5%';>
     <div class='title'>Edit Extras</div>
     <div class='content'>
       <form action='s.php' name='frmContact' method='post' enctype='multipart/form-data'>
@@ -63,8 +58,28 @@ if(isset($_GET['edit'])){
             <input type='file' placeholder='file' name='f1' style='outline: 1px solid black;' accept='.mp4,.png,.jpg' required>
           </div>
           <div class='input-box'>
-            <span class='details'>Background Image</span>
-            <input type='file' placeholder='file' name='f2' style='outline: 1px solid black;' accept='.mp4,.png,.jpg' required>
+            <span class='details'>Color Theme 1<small> (Front to Message)</small></span>
+            <input type='color' style='height:50px' value='".$row['color1']."' name='color' required>
+          </div>
+          <div class='input-box'>
+            <span class='details'>Color Theme 2<small> (Admin to Acad)</small></span>
+            <input type='color' style='height:50px' value='".$row['color2']."' name='color2' required>
+          </div>
+          <div class='input-box'>
+            <span class='details'>Color Theme 3<small> (Latin Honors)</small></span>
+            <input type='color' style='height:50px' value='".$row['color3']."' name='color3' required>
+          </div>
+          <div class='input-box'>
+            <span class='details'>Color Theme 4<small> (CPE)</small></span>
+            <input type='color' style='height:50px' value='".$row['color4']."' name='color4' required>
+          </div>
+          <div class='input-box'>
+            <span class='details'>Color Theme 5<small> (BSIS)</small></span>
+            <input type='color' style='height:50px' value='".$row['color5']."' name='color5' required>
+          </div>
+          <div class='input-box'>
+            <span class='details'>Color Theme 6<small> (Milestones)</small></span>
+            <input type='color' style='height:50px' value='".$row['color6']."' name='color6' required>
           </div>
           <div class='input-box' style='width:100%'>
           <span class='details'>Title</span>

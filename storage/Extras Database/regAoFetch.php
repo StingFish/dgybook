@@ -59,7 +59,12 @@ if(mysqli_num_rows($result) > 0)
 						<tr style="background-color:#0276d8">
 							<th>Title</th>
 							<th>Message</th>
-							<th>Background Image</th>
+							<th>Color 1</th>
+							<th>Color 2</th>
+							<th>Color 3</th>
+							<th>Color 4</th>
+							<th>Color 5</th>
+							<th>Color 6</th>
 							<th>Year</th>
 							<th>Action</th>
 						</tr>
@@ -71,14 +76,19 @@ if(mysqli_num_rows($result) > 0)
 			<tr align="center">
 				<td align="center" data-label="First Name">'.$row["front_title"].'</td>
 				<td align="center" data-label="Image"><img class="image-official" src="uploads/'.$row["messages"].'"/></td>
-        <td align="center" data-label="Background"><img class="image-official" style="width:auto" src="../../bground/'.$row["background"].'"/></td>
+        <td align="center" data-label="Background"><input type="color" value="'.$row["color1"].'" disabled></td>
+        <td align="center" data-label="Background"><input type="color" value="'.$row["color2"].'" disabled></td>
+        <td align="center" data-label="Background"><input type="color" value="'.$row["color3"].'" disabled></td>
+        <td align="center" data-label="Background"><input type="color" value="'.$row["color4"].'" disabled></td>
+        <td align="center" data-label="Background"><input type="color" value="'.$row["color5"].'" disabled></td>
+        <td align="center" data-label="Background"><input type="color" value="'.$row["color6"].'" disabled></td>
 				<td align="center" data-label="Year">'.$row["addon_year"].'</td>
         <td align="center">
                 <button style="background-color:green">
               <a style="text-decoration:none;color:white" href ="regFunction.php?edit='.$row["addon_year"].'"><i class="fas fa-edit"></i></a>
                 </button>
                 <button style="background-color:red">
-              <a style="text-decoration:none;color:white" onclick="javascript:confirmationDelete($(this));return false;" href="regFunction.php?email='.$row["messages"].'&file='.$row["background"].'"><i class="fas fa-trash " aria-hidden="true"></i></a>
+              <a style="text-decoration:none;color:white" onclick="javascript:confirmationDelete($(this));return false;" href="regFunction.php?email='.$row["messages"].'"><i class="fas fa-trash" aria-hidden="true"></i></a>
                 </button>
               </td>
 			</tr>

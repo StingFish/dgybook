@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-    if(!isset($_SESSION['User2']))
+    if(!isset($_SESSION['User']))
     {
     echo "<script>alert('You must login as Admin first.');window.location='../../landpage.php';</script>";
     }
-    isset($_SESSION['User2']);
+    isset($_SESSION['User']);
 
 // variables
 $db=mysqli_connect('localhost', 'root', '', 'tests');
@@ -30,7 +30,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
     <link rel="stylesheet" href="ms.css">
     <link rel="stylesheet" href="css/image-zoom.css">
     <link rel="stylesheet" href="css/zoom.css">
-<link rel="shortcut icon" href="CvSU/logo-removebg.png">
+    <link rel="shortcut icon" href="CvSU/logo-removebg.png">
   </head>
 
   <body>

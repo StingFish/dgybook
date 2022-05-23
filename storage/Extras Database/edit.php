@@ -31,8 +31,28 @@
             <input type="text" placeholder="Title" value="<?php echo $title;?>" name="title" required>
           </div>
           <div class="input-box">
-            <span class="details">Background Image</span>
-            <input type="file" placeholder="file" name="f2" style="outline: 1px solid black;" accept=".mp4,.png,.jpg" required>
+            <span class="details">Color Theme 1<small> (Front to Message)</small></span>
+            <input type="color" style="height: 50px" value="<?php echo $color;?>" name="color" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Color Theme 2<small> (Admin to Acad)</small></span>
+            <input type="color" style="height: 50px" value="<?php echo $color2;?>" name="color2" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Color Theme 3<small> (Latin Honors)</small></span>
+            <input type="color" style="height: 50px" value="<?php echo $color3;?>" name="color3" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Color Theme 4<small> (CPE)</small></span>
+            <input type="color" style="height: 50px" value="<?php echo $color4;?>" name="color4" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Color Theme 5<small> (BSIS)</small></span>
+            <input type="color" style="height: 50px" value="<?php echo $color5;?>" name="color5" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Color Theme 6<small> (Milestones)</small></span>
+            <input type="color" style="height: 50px" value="<?php echo $color6;?>" name="color6" required>
           </div>
           <div class="input-box">
             <span class="details">Year</span>

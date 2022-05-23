@@ -319,15 +319,15 @@ a.float:hover + div.label-container{
   <a href="javascript:void(0);" onclick="openNav()"><img src="CvSU/logo-removebg.png" alt="logo" class="logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $_SESSION['User']; ?></b></i></a>
 </div>
 <div>
-  <center><input class="inp" type="text" placeholder="Search by Year" name="search-text" style="width:50%;background-position: 10px 10px;padding: 10px 20px 10px 35px;margin-bottom: 5px;margin-top: 5px;" id="search_text_affair"></center>
+  <center><input class="inp" type="text" placeholder="Search by Year" name="search-text" style="width:50%;background-position: 10px 10px;padding: 10px 20px 10px 35px;margin-bottom: 5px;margin-top: 5px;display: inline-block;" id="search_text_affair">
+  <button style="background-color:#0276d8;float:right;">
+        <a style="text-decoration:none;color:white;" href="edit.php"><b>+</b></a>
+  </button></center>
 </div>
 </div>
 <br>
 <br>
 <br>
-<a href="edit.php" class="float">
-<i class="my-float" style="font-family: Oswald;font-size: 40px;font-style: normal;font-weight: bold;">+</i>
-</a>
 <div class="label-container">
 <div class="label-text">Add</div>
 <i class="fa label-arrow"></i>

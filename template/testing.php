@@ -1,11 +1,12 @@
 <?php
-session_start();
+    session_start();
 
-    if(!isset($_SESSION['User2']))
+    if(!isset($_SESSION['User3']))
     {
-    echo "<script>alert('You must login as Admin first.');window.location='../../landpage.php';</script>";
+      echo "<script>alert('You must login as Student first.');window.location='../landpage.php';</script>";
     }
-    isset($_SESSION['User2']);
+    isset($_SESSION['User3']);
+    isset($_SESSION['Users3']);
 
 // variables
 $db=mysqli_connect('localhost', 'root', '', 'tests');
@@ -14,7 +15,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Yearbook Testing</title>
+    <title>My Yearbook</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=0.6, minimum-scale=0.1, maximum-scale=0.6"
@@ -34,7 +35,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
   </head>
 
   <body>
-  <div class="exit"><a href="path.php"><i class="fa-solid fa-circle-xmark fa-3x" style="color:#cefdff"></i></a></div>
+  <div class="exit"><a href="menu.php"><i class="fa-solid fa-circle-xmark fa-3x" style="color:#cefdff"></i></a></div>
     <!-- Slider main container -->
     <div class="swiper-container">
     <script>
@@ -65,8 +66,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <?php 
-                    if (isset($_GET["call"])){
-                        $goo = $_GET['call'];
+                        $goo= $_SESSION['Users3'];
                         $get = "SELECT * FROM tbl_addons WHERE addon_year = '$goo'";
                         $fet = mysqli_query($db, $get);
 
@@ -198,7 +198,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                         $result = mysqli_query($db, $user_check_query);
 
                             while ($row = mysqli_fetch_array($result)){
-                                echo '<img class="yearbookImage hithere" src="../../storage/EYearbook Database/FrontImage/'.$row['frontImage'].'"  style="width:30%; height:80%;vertical-align:middle">';
+                                echo '<img class="yearbookImage hithere" src="../storage/EYearbook Database/FrontImage/'.$row['frontImage'].'"  style="width:30%; height:80%;vertical-align:middle">';
                         }
                     ?>
                 </div>
@@ -227,7 +227,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                 <div class="swiper-slide" style="overflow-y: auto;overflow-x: hidden;background-color:<?php echo $fetch['color1'] ?>;">
                     <?php
                         echo "<div class='yb-php' style='background:none;overflow-y: scroll;overflow-x: hidden;' id='text2'>";
-                        echo '<center><img class="zoomE wow fadeInDown imahe" src="../../storage/Extras Database/uploads/'.$fetch["messages"].'" style="width:35%;height: 80%;"></center>
+                        echo '<center><img class="zoomE wow fadeInDown imahe" src="../storage/Extras Database/uploads/'.$fetch["messages"].'" style="width:35%;height: 80%;"></center>
                         </div>';
                     ?>
                 </div>
@@ -251,7 +251,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                                         echo "<div class='container'>";
                                         echo "<div class='card' style='height:350px;'>";
                                         echo "<div class='imgBx'>";
-                                        echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
+                                        echo '<img class="zoomE" src="../DB/'.$row['profile_image'].'"/>';
                                         echo "</div>";
                                         echo "<div class='contentt'  style='font-family: Oswald;'>";
                                         echo "<h2 style='margin-top:0;font-family: Oswald;'>".$row['efname']."&nbsp;".substr($row['emname'],0,1).".&nbsp;".$row['elname'].$tle."</h2>";
@@ -277,7 +277,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                                         echo "<div class='container'>";
                                         echo "<div class='card' style='height:350px;'>";
                                         echo "<div class='imgBx'>";
-                                        echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
+                                        echo '<img class="zoomE" src="../DB/'.$row['profile_image'].'"/>';
                                         echo "</div>";
                                         echo "<div class='contentt' style='font-family: Oswald'>";
                                         echo "<h2 style='margin-top:0;font-family: Oswald;'>".$row['efname']."&nbsp;".substr($row['emname'],0,1).".&nbsp;".$row['elname']."</h2>";
@@ -304,7 +304,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                                     echo "<div class='container'>";
                                         echo "<div class='card' style='height:350px;'>";
                                         echo "<div class='imgBx'>";
-                                        echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
+                                        echo '<img class="zoomE" src="../DB/'.$row['profile_image'].'"/>';
                                         echo "</div>";
                                         echo "<div class='contentt'>";
                                         echo "<h2 class='unselectable' style='font-family: Oswald;'>".$row['sfname']."&nbsp;".substr($row['smname'],0,1).".&nbsp;".$row['slname']."</h2>";
@@ -332,7 +332,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                                 echo "<div class='container'>";
                                 echo "<div class='card' style='height:350px;'>";
                                 echo "<div class='imgBx'>";
-                                echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
+                                echo '<img class="zoomE" src="../DB/'.$row['profile_image'].'"/>';
                                 echo "</div>";
                                 echo "<div class='contentt'>";
                                 echo "<h2 class='unselectable' style='font-family: Oswald;'>".$row['sfname']."&nbsp;".substr($row['smname'],0,1).".&nbsp;".$row['slname']."</h2>";
@@ -361,7 +361,7 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                                   echo "<div class='container'>";
                                   echo "<div class='card' style='height:350px;'>";
                                   echo "<div class='imgBx'>";
-                                  echo '<img class="zoomE" src="../../DB/'.$row['profile_image'].'"/>';
+                                  echo '<img class="zoomE" src="../DB/'.$row['profile_image'].'"/>';
                                   echo "</div>";
                                   echo "<div class='contentt'>";
                                   echo "<h2 class='unselectable' style='font-family: Oswald;'>".$row['sfname']."&nbsp;".substr($row['smname'],0,1).".&nbsp;".$row['slname']."</h2>";
@@ -384,11 +384,10 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
                           $result = mysqli_query($db, $user_check_query);
         
                           while ($row = mysqli_fetch_array($result)){
-                          echo '<img class="zoomE" src="../../storage/Milestones & Activities/uploads/'.$row['academic_image'].'" alt="'.$row['academic_description'].'" style="width:50%; height:70%">';
+                          echo '<img class="zoomE" src="../storage/Milestones & Activities/uploads/'.$row['academic_image'].'" alt="'.$row['academic_description'].'" style="width:50%; height:70%">';
                           echo '<p class="description">'.$row['academic_description'].'</p><br>';
                           }  
                         }
-                    }
                             
                             ?>
                     </div>

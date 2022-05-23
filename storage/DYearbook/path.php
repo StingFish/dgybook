@@ -1,9 +1,9 @@
 <?php
-    session_start();
+  session_start();
 
     if(!isset($_SESSION['User']))
     {
-    echo "<script>alert('You must login as Registrar first.');window.location='../../landpage.php';</script>";
+    echo "<script>alert('You must login as Admin first.');window.location='../../landpage.php';</script>";
     }
     isset($_SESSION['User']);
 ?>
@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>View Alumni Yearbook</title>
+<title>Alumni Table</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
@@ -281,7 +281,7 @@ hov:hover{
    }
   ?>
   <center>
-  <p><a class="un" href="../../storage.php" style="float: left;font-size: 15px;display: block;">Dashboard</a></p>
+    <p><a class="un" href="../../storage.php" style="float: left;font-size: 15px;display: block;">Dashboard</a></p>
   <p><a class="un" href="../../storage/Employees Database/index.php" style="float: left;font-size: 15px;display: block;">Employee's Table</a></p>
   <p><a class="un" href="../../storage/Students Database/path.php" style="float: left;font-size: 15px;display: block;">Alumni Table</a></p>
   <p><a class="un" href="../../storage/Milestones & Activities/path.php" style="float: left;font-size: 15px;display: block;">Milestones Table</a></p>
@@ -300,9 +300,6 @@ hov:hover{
 </div>
 </div>
 </header>
-  <div>
-<button id="myBtn" style="background-color:white;margin-right: 10px;margin-top:60px;padding: 10px;" class="loc">Add Data</button><br><br>
-</div>
 
 <div id="myModal" class="modal">
 
@@ -372,7 +369,7 @@ window.onclick = function(event) {
          while ($row = mysqli_fetch_array($result)){
             echo "<div class='container' style='float:left;'>";
             echo "<div class='imgBx' style='border:none;'>";
-            echo '<a href="main.php?call='.$row["year"].'"><img name="nooo" class="pic" src="CvSU/db.png" style="width:300px;"/></a>';
+            echo '<a href="testing.php?call='.$row["year"].'"><img name="nooo" class="pic" src="CvSU/db.png" style="width:300px;"/></a>';
             
             echo "<div class='contentt' style='margin-top: -30px;color:black;'>";
             echo "<center style='font-weight:bold;'>".$row["year"].".xlsx</center>";

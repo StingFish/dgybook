@@ -201,7 +201,7 @@ body{
           <center><img src="CvSU/logo-removebg.png" style="width:150px;"></center>
           <div class="row button" style="">
             <div class="text-box">
-            <a href="main.php" class="btn btn-white btn-animate" style="width: 80%;text-align:center;">MY BOOK</a>
+            <a href="testing.php" class="btn btn-white btn-animate" style="width: 80%;text-align:center;">MY BOOK</a>
           </div>
           <br>
           <br>
