@@ -77,12 +77,12 @@
           </div>
           <div class="input-box">
             <span class="details">Quotes</span>
-            <textarea placeholder="Quotes" id="quotes" name="quotes" value="<?php echo $quo;?>" style="resize: none;height: 120px" required></textarea>
+            <textarea placeholder="Quotes" id="quotes" name="quotes" value="<?php echo $quo;?>" style="resize: none;height: 120px"></textarea>
           </div>
           <div class="input-box">
             <span class="details">Latin Honor</span>
             <select name="latin" value="<?php echo $latin;?>">
-              <option value=""><b>None</b></option>
+            <option value=""><b>None</b></option>
             <option value="Cum laude"><b>Cum laude</b></option>
             <option value="Magna cum laude"><b>Magna cum laude</b></option>
             <option value="Summa cum laude"><b>Summa cum laude</b></option>
@@ -92,10 +92,10 @@
           </div>
           <div class="input-box">
             <span class="details">Yr. & Section</span>
-            <input onkeypress="return /[0-9-]/i.test(event.key)" type="text" placeholder="Ex. 4-1" id="sec" name="sec" value="<?php echo $sec;?>" required>
+            <input onkeypress="return /[0-9-]/i.test(event.key)" type="text" placeholder="Ex. 4-1" id="sec" name="sec" value="<?php echo $sec;?>">
           </div>
           <div class="input-box">
-            <span class="details">Batch Year</span>
+            <span class="details">Year</span>
             <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return /[0-9]/i.test(event.key)" min="2018" maxlength="4" placeholder="Batch Year" name="yrr" value="<?php echo $yerr;?>" required>
           </div>
           <div class="input-box">
@@ -131,7 +131,7 @@
           </div>
           <div class="input-box">
             <span class="details">Status</span>
-            <select name="dis" value="<?php echo $dist;?>">
+            <select name="dis" value="<?php echo $dist;?>" required>
             <option value="1"><b>On</b></option>
             <option value="0"><b>Off</b></option>
       </select>
