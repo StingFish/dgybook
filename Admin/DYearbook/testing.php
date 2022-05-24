@@ -34,6 +34,10 @@ $db=mysqli_connect('localhost', 'root', '', 'tests');
   </head>
 
   <body>
+    <audio autoplay loop>
+  <source src="track1.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
   <div class="exit"><a href="path.php"><i class="fa-solid fa-circle-xmark fa-3x" style="color:#cefdff"></i></a></div>
     <!-- Slider main container -->
     <div class="swiper-container">
