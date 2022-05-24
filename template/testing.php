@@ -334,7 +334,7 @@ Your browser does not support the audio element.
 
                             while ($row = mysqli_fetch_array($result)){
                                 echo "<div class='container'>";
-                                echo "<div class='card' style='height:350px;'>";
+                                echo "<div class='card' style='height:400px;'>";
                                 echo "<div class='imgBx'>";
                                 echo '<img class="zoomE" src="../DB/'.$row['profile_image'].'"/>';
                                 echo "</div>";
@@ -363,7 +363,7 @@ Your browser does not support the audio element.
           
                               while ($row = mysqli_fetch_array($result)){
                                   echo "<div class='container'>";
-                                  echo "<div class='card' style='height:350px;'>";
+                                  echo "<div class='card' style='height:400px;'>";
                                   echo "<div class='imgBx'>";
                                   echo '<img class="zoomE" src="../DB/'.$row['profile_image'].'"/>';
                                   echo "</div>";

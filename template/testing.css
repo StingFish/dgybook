@@ -45,7 +45,7 @@ body {
 }
 .swiper-pagination {
   position: absolute;
-  right: 20%;
+  right: 10%;
   width: auto !important;
   left: auto !important;
   margin: 0;
@@ -86,33 +86,33 @@ body {
 }
 .container{
     position: relative;
-	display:flex;
-	justify-content: center;
-	align-items: center;
-	padding:30px;
-	flex-direction: row;
-	flex-wrap: wrap;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:30px;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .container .card{
-	position: relative;
-	width: 250px;
-	max-width: 250px;
-	height: 300px;
-	background: #fff;
-	margin: 30px 10px;
-	padding: 20px 15px;
-	display: flex;
-	flex-direction: column;
-	transition: 0.3s ease-in-out;
+    position: relative;
+    width: 250px;
+    max-width: 250px;
+    height: 300px;
+    background: #fff;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease-in-out;
 }
 .container .card .imgBx{
-	position: relative;
-	width: 200px;
-	height: 250px;
-	top:-60px;
-	left: 20px;
-	z-index: 1;
-	box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    position: relative;
+    width: 200px;
+    height: 250px;
+    top:-60px;
+    left: 20px;
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
 /* ----------------- MC.CSS -------- */
 .overlay {
@@ -148,7 +148,7 @@ body {
     flex-direction: column;
 }
 .wrapping{
-    margin: 50px 0 0 20px;
+    margin: 50px 0 0 100px;
     height: 100vh;
     width: 100%;
     display: flex;

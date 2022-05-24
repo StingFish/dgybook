@@ -207,15 +207,15 @@ h1{
     margin-bottom: 40px;
 }
 table {
-    width: 90%;
+    width: 60%;
     border-collapse: collapse;
-    height: 40px;
+    height: 40%;
     font-style: italic;
 }
 
 .header_fixed {
     max-height: 100vh;
-    width: 100%;
+    width: 60%;
     overflow: auto;
     border: 1px solid #dddddd;
 }

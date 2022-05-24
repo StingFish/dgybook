@@ -45,7 +45,7 @@ body {
 }
 .swiper-pagination {
   position: absolute;
-  right: 20%;
+  right: 10%;
   width: auto !important;
   left: auto !important;
   margin: 0;
@@ -148,7 +148,7 @@ body {
     flex-direction: column;
 }
 .wrapping{
-    margin: 50px 0 0 20px;
+    margin: 50px 0 0 100px;
     height: 100vh;
     width: 100%;
     display: flex;
