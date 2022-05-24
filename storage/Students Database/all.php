@@ -39,9 +39,7 @@ foreach ($_POST['aemail'] as $key => $value) {
 	echo "<script>alert('Added to Yearbook Successfully.');window.location='index.php';</script>";
 	}
 	}
-	}else{
-		echo "<script>alert('Added to Yearbook failed.');window.location='index.php';</script>";
-}
+	}
 }
 }
 ?>
