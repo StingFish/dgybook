@@ -28,7 +28,7 @@ if(isset($_POST['save2'])){
 	if (!$fetch) {
 		echo "<script>alert('Create a School Year for this batch in Employees Yearbook Database.');window.location='index.php';</script>";
 	}else{
-	$check2 = "SELECT * FROM tbl_eybook WHERE employee_year = '$year'";
+	$check2 = "SELECT * FROM tbl_eybook WHERE eid = '$id' AND employee_year = '$year'";
 	$result2 = mysqli_query($mysqli, $check2);
   if (mysqli_num_rows($result2) > 0) {
     echo "<script>alert('Data Exists.');window.location='index.php';</script>";

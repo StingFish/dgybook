@@ -171,7 +171,7 @@ echo "</style>";
         <form action='s.php' method='post' enctype='multipart/form-data' style='overflow-y:scroll;'>";
         echo '<center><img class="imahe" style="width:80px; height:100px;" src="../../DB/'.$row['profile_image'].'"/></center><br>';
 
-        echo "<input type='text' name='id' value='".$id."' placeholder='Email or Phone' style='display:none;'>
+        echo "<input type='text' name='id' value='".$row['sid']."' placeholder='Email or Phone' style='display:none;'>
           
           <div class='input-container'>
     <i class='fa fa-user icon'></i>

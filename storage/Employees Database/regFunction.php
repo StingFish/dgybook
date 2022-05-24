@@ -89,7 +89,6 @@ echo "</style>";
           <option value='Officer In Charge'>Officer In Charge</option>
             </select>
           </div>
-          </div>
           <div class='input-box'>
             <span class='details'>Entry Group Type</span>
           <select name='pos'>

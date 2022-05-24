@@ -309,12 +309,12 @@ hov:hover{
 </div>
 </header>
   <div>
-<button id="myBtn" style="background-color:white;margin-right: 10px;margin-top:60px;padding: 10px;" class="loc">Add Data</button><br><br>
+<!---<button id="myBtn" style="background-color:white;margin-right: 10px;margin-top:60px;padding: 10px;" class="loc">Add Data</button><br><br>
 </div>
 
 <div id="myModal" class="modal">
 
-  <!-- Modal content -->
+ Modal content
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
@@ -323,8 +323,8 @@ hov:hover{
     <div class="modal-body">
         <form action="path.php" method="post">
         Data Year:
-        <?php $goose=date("Y"); ?>
-      <input type="number" min='2018' max="<?php echo $goose; ?>" name="f1" style="width:100%;border-bottom:1px solid black;outline:none;">
+        <?php $goose//=date("Y"); ?>
+      <input type="number" min='2018' max="<?php //echo $goose; ?>" name="f1" style="width:100%;border-bottom:1px solid black;outline:none;">
     </div>
     <div class="modal-footer">
         <div>
@@ -335,7 +335,7 @@ hov:hover{
 </form>
     </div>
   </div>
-
+-->
 </div>
 
 <script>

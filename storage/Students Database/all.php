@@ -26,15 +26,22 @@ foreach ($_POST['aemail'] as $key => $value) {
 		echo "<script>alert('Create a School Year for this batch in Alumni Yearbook Database.');window.location='index.php';</script>";
 	}
 	else{
+	$check2 = "SELECT * FROM tbl_sybook WHERE sid = '$id' AND school_year = '$year'";
+	$result2 = mysqli_query($db_connect, $check2);
+  if (mysqli_num_rows($result2) > 0) {
+    echo "<script>alert('Data Exists.');window.location='index.php';</script>";
+  }
+	else{
 	$insertqry = "INSERT INTO tbl_sybook (sid, slname, sfname, smname, quotes, YrSec, school_year) VALUES ('$id', '$ln', '$fn', '$mn', '$quot', '$sec', '$year')";
 	$insertqry=mysqli_query($db_connect,$insertqry);
 	echo mysqli_error($db_connect);
 
 	echo "<script>alert('Added to Yearbook Successfully.');window.location='index.php';</script>";
 	}
+	}
 	}else{
 		echo "<script>alert('Added to Yearbook failed.');window.location='index.php';</script>";
-	}
+}
 }
 }
 ?>
